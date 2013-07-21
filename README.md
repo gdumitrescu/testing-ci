@@ -1,6 +1,7 @@
 ### Testing CI
 
 Sample project for testing CI services
+
 [![Build Status](https://secure.travis-ci.org/gdumitrescu/testing-ci.png?branch=master)](http://travis-ci.org/gdumitrescu/testing-ci)
 [![Coverage Status](https://coveralls.io/repos/gdumitrescu/testing-ci/badge.png?branch=master)](https://coveralls.io/r/gdumitrescu/testing-ci?branch=master)
 
