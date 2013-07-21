@@ -6,7 +6,7 @@ php:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
+  - php composer.phar install --dev --no-interaction
   - pear install --alldeps pear/PHP_CodeSniffer
   - pear install --alldeps phpunit/PHP_Invoker
   - pear install --alldeps phpunit/DbUnit
@@ -14,4 +14,9 @@ before_script:
   - pear install --alldeps phpunit/PHPUnit_Story
   - phpenv rehash
 
-script: phpunit --configuration phpunit.xml.dist
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml.dist
+
+after_script:
+  - php vendor/bin/coveralls -v
