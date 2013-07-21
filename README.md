@@ -6,6 +6,8 @@ Sample project for testing CI services
 
 [![Codeship Status for gdumitrescu/testing-ci](https://www.codeship.io/projects/09984e40-d468-0130-2d30-0e167aad1bc5/status?branch=master)](https://www.codeship.io/projects/5182)
 
+[![Build Status](https://drone.io/github.com/gdumitrescu/testing-ci/status.png)](https://drone.io/github.com/gdumitrescu/testing-ci/latest)
+
 [![Coverage Status](https://coveralls.io/repos/gdumitrescu/testing-ci/badge.png?branch=master)](https://coveralls.io/r/gdumitrescu/testing-ci?branch=master)
 
 ### Credits
