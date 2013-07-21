@@ -62,7 +62,7 @@ tools:
             excluded_paths:       ["vendor"]
 
         config:
-            level:                psr0 # Allowed Values: "psr0", "psr1", "psr2", "all"
+            level:                psr1 # Allowed Values: "psr0", "psr1", "psr2", "all"
             fixers:               []
 
     # Analyzes the size and structure of a PHP project.
