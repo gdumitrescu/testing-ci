@@ -12,18 +12,6 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
 
     private $calc = null;
 
-    /**
-     * Setup the test environment
-     *
-     * @return unknown
-     */
-    public function inputNumbers() {
-        return [
-        [2, 2 , 4],
-        [-9, -9 , 18]
-        ];
-    }
-
 
     /**
      * Setup the test environment
@@ -44,17 +32,6 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
 
 
     /**
-     * Test instance of $this->calc
-     *
-     * @test
-     */
-    public function testInstanceOf() {
-
-        $this->assertInstanceOf('App\Libs\Calculator', $this->calc);
-    }
-
-
-    /**
      * Test provide invalid argument throw an exception
      *
      * @expectedException InvalidArgumentException
@@ -69,15 +46,11 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
     /**
      * Test calculation return a true sumi
      *
-     * @dataProvider inputNumbers
      * @test
-     * @param unknown $x
-     * @param unknown $y
-     * @param unknown $sum
      */
-    public function testValidResult($x, $y, $sum) {
+    public function testValidResult() {
 
-        $this->assertEquals($sum, $this->calc->add($x, $y));
+        $this->assertEquals(4, $this->calc->add(2, 2));
     }
 
 
