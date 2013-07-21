@@ -3,6 +3,9 @@
 Sample project for testing CI services
 
 [![Build Status](https://secure.travis-ci.org/gdumitrescu/testing-ci.png?branch=master)](http://travis-ci.org/gdumitrescu/testing-ci)
+
+[![Codeship Status for gdumitrescu/testing-ci](https://www.codeship.io/projects/09984e40-d468-0130-2d30-0e167aad1bc5/status?branch=master)](https://www.codeship.io/projects/5182)
+
 [![Coverage Status](https://coveralls.io/repos/gdumitrescu/testing-ci/badge.png?branch=master)](https://coveralls.io/r/gdumitrescu/testing-ci?branch=master)
 
 ### Credits
