@@ -9,8 +9,9 @@ before_script:
   - php composer.phar install --dev --no-interaction
 
 script:
+  - phpunit -c phpunit.xml.dist
   - mkdir -p build/logs
-  - php vendor/bin/phpunit -c phpunit.xml.dist
+  - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - php vendor/bin/coveralls -v
