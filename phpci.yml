@@ -1,0 +1,44 @@
+build_settings:
+    verbose: false
+    ignore:
+        - "vendor"
+        - "assets"
+        - "build"
+        - "Tests"
+        - "composer.phar"
+
+    mysql:
+        host: "localhost"
+        user: "root"
+        pass: ""
+
+setup:
+    mysql:
+        - "DROP DATABASE IF EXISTS test;"
+        - "CREATE DATABASE test;"
+        - "GRANT ALL PRIVILEGES ON test.* TO test@'localhost' IDENTIFIED BY 'test';"
+    composer:
+        action: "install"
+
+test:
+    php_unit:
+        config:
+            - "phpunit.xml.dist"
+        directory:
+            - "tests/"
+
+    # Runs PHP Code Sniffer
+    php_code_sniffer:
+        standard: "PSR1"
+
+    # Runs PHP Copy/Paste Detector
+    php_cpd:
+        allow_failures: true
+
+    # Runs the PHP Mess Detector (http://phpmd.org).
+    php_mess_detector:
+        allow_failures: true
+
+complete:
+    mysql:
+        - "DROP DATABASE IF EXISTS test;"
