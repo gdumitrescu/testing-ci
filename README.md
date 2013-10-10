@@ -20,3 +20,7 @@ Sample project for testing CI services
 - [Travis CI](https://travis-ci.org) - Free Hosted Continuous Integration Platform for the Open Source Community
 - [Scrutinizer](https://scrutinizer-ci.com) - Build quality software, better. Powerful tools for measuring and tracking quality of software projects for open-source and private development projects.
 - [Strider CD](http://stridercd.com) - Open Source Continuous Integration & Deployment Server
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gdumitrescu/testing-ci/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
