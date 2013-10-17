@@ -2,7 +2,7 @@
 
 Sample project for testing CI services
 
-[![Codeship Status for gdumitrescu/testing-ci](https://www.codeship.io/projects/09984e40-d468-0130-2d30-0e167aad1bc5/status?branch=master)](https://www.codeship.io/projects/5182)
+[![Codeship Status for gdumitrescu/testing-ci](https://www.codeship.io/projects/1fc61d10-1987-0131-0ae5-06becb4c3386/status?branch=master)](https://www.codeship.io/projects/8223)
 
 [![Build Status](https://drone.io/github.com/gdumitrescu/testing-ci/status.png)](https://drone.io/github.com/gdumitrescu/testing-ci/latest)
 
