@@ -1,18 +1,19 @@
-language: php
-
-php:
-  - 5.3
-  - 5.4
+language: node_js
+node_js:
+  - "0.11"
+  - "0.10"
 
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev --no-interaction
+  - npm install -g grunt-cli harp bower cordova
+  - npm install -g testem phantomjs casperjs
 
-script:
-  - phpunit -c phpunit.xml.dist
-  - mkdir -p build/logs
-  - phpunit --coverage-clover build/logs/clover.xml
-  - bin/atoum --test-all
-  
-after_script:
-  - php vendor/bin/coveralls -v
+install:
+  - npm install
+  - bower install
+
+notifications:
+  email:
+    recipients:
+      - alert@worker.com
+    on_success: change
+    on_failure: always
