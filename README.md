@@ -1,7 +1,7 @@
 ### Testing CI
 
 Sample project for testing CI services
-[ ![Codeship Status for gdumitrescu/testing-ci](https://codeship.io/projects/97b2af00-2188-0132-000d-063d8b748863/status)](https://codeship.io/projects/36287)
+[![Codeship Status for gdumitrescu/testing-ci](https://codeship.io/projects/97b2af00-2188-0132-000d-063d8b748863/status)](https://codeship.io/projects/36287)
 [![Build Status](https://drone.io/github.com/gdumitrescu/testing-ci/status.png)](https://drone.io/github.com/gdumitrescu/testing-ci/latest)
 [![Build Status](https://api.shippable.com/projects/541b16beac22859af744281f/badge?branchName=master)](https://app.shippable.com/projects/541b16beac22859af744281f/builds/latest)
 [![Build Status](https://travis-ci.org/gdumitrescu/testing-ci.svg)](https://travis-ci.org/gdumitrescu/testing-ci)
