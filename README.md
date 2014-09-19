@@ -2,6 +2,9 @@
 
 Sample project for testing CI services
 
+[![Stories in To Do](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=to%20do&title=To%20Do)](http://waffle.io/gdumitrescu/testing-ci)
+
+
 [![Codeship Status for gdumitrescu/testing-ci](https://codeship.io/projects/97b2af00-2188-0132-000d-063d8b748863/status)](https://codeship.io/projects/36287)
 [![Build Status](https://drone.io/github.com/gdumitrescu/testing-ci/status.png)](https://drone.io/github.com/gdumitrescu/testing-ci/latest)
 [![Build Status](https://api.shippable.com/projects/541b16beac22859af744281f/badge?branchName=master)](https://app.shippable.com/projects/541b16beac22859af744281f/builds/latest)
