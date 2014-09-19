@@ -1,4 +1,4 @@
-### Testing CI
+### Testing CI [![Gitter chat](https://badges.gitter.im/join chat.svg)](https://gitter.im/gdumitrescu/testing-ci)
 
 Sample project for testing CI services
 
