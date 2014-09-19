@@ -2,7 +2,7 @@
 
 Sample project for testing CI services
 
-[![Stories in To Do](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=to%20do&title=To%20Do)](http://waffle.io/gdumitrescu/testing-ci)
+[![Stories in To Do](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=todo&title=To%20Do)](http://waffle.io/gdumitrescu/testing-ci)
 
 
 [![Codeship Status for gdumitrescu/testing-ci](https://codeship.io/projects/97b2af00-2188-0132-000d-063d8b748863/status)](https://codeship.io/projects/36287)
