@@ -17,5 +17,6 @@ Sample project for testing CI services
 - [drone.io](https://drone.io) - Hosted Continuous Integration and Deployment for Github, Bitbucket and Google Code. Supports 12+ languages including Java, Groovy, Go, Dart and Node.
 - [Magnum CI](https://magnum-ci.com) - Hosted Continuous Integration and Continuous Deployment Platform
 - [Shippable](https://www.shippable.com/) - Shippable is a hosted Continuous Integration & Continuous Deployment platform using Docker for Node.js, Ruby, Java, .Net and Python.
+- [Snap CI](https://www.snap-ci.com/) - Easy builds, deployed when you want. Snap delivers fast feedback so you can deliver high quality software quickly. 
 - [Strider CD](http://stridercd.com) - Open Source Continuous Integration & Deployment Server
 - [Travis CI](https://travis-ci.org) - Free Hosted Continuous Integration Platform for the Open Source Community
