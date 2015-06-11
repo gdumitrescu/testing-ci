@@ -2,7 +2,8 @@
 
 Sample project for testing CI services
 
-[![Stories in To Do](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=todo&title=To%20Do)](http://waffle.io/gdumitrescu/testing-ci)
+[![Stories in Ready](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=ready&title=Ready)](http://waffle.io/gdumitrescu/testing-ci)
+
 [![Stories in Doing](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=doing&title=Doing)](http://waffle.io/gdumitrescu/testing-ci)
 
 
