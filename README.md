@@ -3,9 +3,9 @@
 Sample project for testing CI services
 
 [![Stories in Ready](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=ready&title=Ready)](http://waffle.io/gdumitrescu/testing-ci)
-
 [![Stories in Doing](https://badge.waffle.io/gdumitrescu/testing-ci.svg?label=doing&title=Doing)](http://waffle.io/gdumitrescu/testing-ci)
 
+[![Throughput Graph](https://graphs.waffle.io/gdumitrescu/testing-ci/throughput.svg)](https://waffle.io/gdumitrescu/testing-ci/metrics)
 
 [![Codeship Status for gdumitrescu/testing-ci](https://codeship.io/projects/97b2af00-2188-0132-000d-063d8b748863/status)](https://codeship.io/projects/36287)
 
