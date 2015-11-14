@@ -14,7 +14,7 @@ Project for testing CI services
 | Magnum CI | | |
 | Shippable | [![Build Status](https://api.shippable.com/projects/541b16beac22859af744281f/badge?branchName=master)](https://app.shippable.com/projects/541b16beac22859af744281f/builds/latest) |
 | Snap CI | [![Build Status](https://snap-ci.com/gdumitrescu/testing-ci/branch/master/build_image)](https://snap-ci.com/gdumitrescu/testing-ci/branch/master) |
-| Srider CD | | |
+| Strider CD | | |
 | Travis CI | [![Build Status](https://travis-ci.org/gdumitrescu/testing-ci.svg)](https://travis-ci.org/gdumitrescu/testing-ci) |
 
 ### Credits
