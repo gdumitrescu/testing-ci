@@ -2,144 +2,65 @@
 jobs:
 - name: test-unboxit-nosequelgen
   plan:
+  - get: ci
   - get: every-1h
     trigger: true
   - get: unboxit-nosequelgen
     trigger: true
   - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-nosequelgen}
     params:
       SNYK_TOKEN: {{snyk-token}}
       USER_ID: {{snyk-user-id}}
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: snyk/snyk-cli
-          tag: npm
-      inputs:
-      - name: source-code
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eux
-          apt install bzip2
-          cd ./source-code
-          npm install
-          snyk test
 
 - name: test-unboxit-elming
   plan:
+  - get: ci
   - get: every-1h
     trigger: true
   - get: unboxit-elming
     trigger: true
   - task: npm-test
+    file: ci/concourse-ci/tasks/npm-test/task.yml
     input_mapping: {source-code: unboxit-elming}
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: node
-          tag: 8
-      inputs:
-      - name: source-code
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eux
-          cd ./source-code
-          npm install
-          npm test
   - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-elming}
     params:
       SNYK_TOKEN: {{snyk-token}}
       USER_ID: {{snyk-user-id}}
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: snyk/snyk-cli
-          tag: npm
-      inputs:
-      - name: source-code
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eux
-          apt install bzip2
-          cd ./source-code
-          npm install
-          snyk test
 
 - name: test-unboxit-tdd-es6-babel-jest
   plan:
+  - get: ci
   - get: every-1h
     trigger: true
   - get: unboxit-tdd-es6-babel-jest
     trigger: true
   - task: npm-test
+    file: ci/concourse-ci/tasks/npm-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: node
-          tag: 8
-      inputs:
-      - name: source-code
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eux
-          cd ./source-code
-          npm install
-          npm test
   - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
     params:
       SNYK_TOKEN: {{snyk-token}}
       USER_ID: {{snyk-user-id}}
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: snyk/snyk-cli
-          tag: npm
-      inputs:
-      - name: source-code
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eux
-          apt install bzip2
-          cd ./source-code
-          npm install
-          snyk test
+
 
 resources:
+- name: ci
+  type: git
+  source:
+    uri: git@github.com:gdumitrescu/testing-ci.git
+    branch: master
+    private_key: {{private-key}}
+
 - name: every-1h
   type: time
   source:
     interval: 1h
-    start: 7:00 AM
-    stop: 10:00 PM
     location: America/Toronto
 
 - name: unboxit-nosequelgen
