@@ -1,0 +1,26 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: snyk/snyk-cli
+    tag: npm
+
+inputs:
+- name: source-code
+  path: "."
+
+params:
+  SNYK_TOKEN:
+  USER_ID:
+
+run:
+  path: sh
+  args:
+  - -c
+  - |
+    set -eux
+    apt install bzip2
+    npm install
+    snyk test
