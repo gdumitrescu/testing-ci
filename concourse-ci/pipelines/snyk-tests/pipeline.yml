@@ -3,8 +3,6 @@ jobs:
 - name: test-unboxit-nosequelgen
   plan:
   - get: ci
-  - get: every-1h
-    trigger: true
   - get: unboxit-nosequelgen
     trigger: true
   - task: snyk-test
@@ -17,8 +15,6 @@ jobs:
 - name: test-unboxit-elming
   plan:
   - get: ci
-  - get: every-1h
-    trigger: true
   - get: unboxit-elming
     trigger: true
   - task: npm-test
@@ -34,8 +30,6 @@ jobs:
 - name: test-unboxit-tdd-es6-babel-jest
   plan:
   - get: ci
-  - get: every-1h
-    trigger: true
   - get: unboxit-tdd-es6-babel-jest
     trigger: true
   - task: npm-test
@@ -48,6 +42,29 @@ jobs:
       SNYK_TOKEN: {{snyk-token}}
       USER_ID: {{snyk-user-id}}
 
+- name: test-unboxit-npm-scripts-only
+  plan:
+  - get: ci
+  - get: unboxit-npm-scripts-only
+    trigger: true
+  - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
+    input_mapping: {source-code: unboxit-npm-scripts-only}
+    params:
+      SNYK_TOKEN: {{snyk-token}}
+      USER_ID: {{snyk-user-id}}
+
+- name: test-cloudbased-jeopardy
+  plan:
+  - get: ci
+  - get: cloudbased-jeopardy
+    trigger: true
+  - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
+    input_mapping: {source-code: cloudbased-jeopardy}
+    params:
+      SNYK_TOKEN: {{snyk-token}}
+      USER_ID: {{snyk-user-id}}
 
 resources:
 - name: ci
@@ -56,12 +73,6 @@ resources:
     uri: git@github.com:gdumitrescu/testing-ci.git
     branch: master
     private_key: {{private-key}}
-
-- name: every-1h
-  type: time
-  source:
-    interval: 1h
-    location: America/Toronto
 
 - name: unboxit-nosequelgen
   type: git
@@ -81,5 +92,19 @@ resources:
   type: git
   source:
     uri: git@github.com:unboxit/tdd-es6-babel-jest.git
+    branch: master
+    private_key: {{private-key}}
+
+- name: unboxit-npm-scripts-only
+  type: git
+  source:
+    uri: git@github.com:unboxit/npm-scripts-only.git
+    branch: master
+    private_key: {{private-key}}
+
+- name: cloudbased-jeopardy
+  type: git
+  source:
+    uri: git@github.com:cloudbased/jeopardy.git
     branch: master
     private_key: {{private-key}}
