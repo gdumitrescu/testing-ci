@@ -15,7 +15,7 @@ run:
   args:
   - -c
   - |
-    set -eoux pipefail
+    set -eux
     cd ./source-code
     npm install -g nsp
     nsp check
