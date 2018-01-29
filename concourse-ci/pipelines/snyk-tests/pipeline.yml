@@ -1,10 +1,28 @@
 ---
 jobs:
+- name: test-unboxit-sequelgen
+  plan:
+  - get: ci
+  - get: unboxit-sequelgen
+    trigger: true
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: unboxit-sequelgen}
+  - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
+    input_mapping: {source-code: unboxit-sequelgen}
+    params:
+      SNYK_TOKEN: {{snyk-token}}
+      USER_ID: {{snyk-user-id}}
+
 - name: test-unboxit-nosequelgen
   plan:
   - get: ci
   - get: unboxit-nosequelgen
     trigger: true
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: unboxit-nosequelgen}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-nosequelgen}
@@ -19,6 +37,9 @@ jobs:
     trigger: true
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
+    input_mapping: {source-code: unboxit-elming}
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
     input_mapping: {source-code: unboxit-elming}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
@@ -35,6 +56,9 @@ jobs:
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
@@ -47,6 +71,9 @@ jobs:
   - get: ci
   - get: unboxit-npm-scripts-only
     trigger: true
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: unboxit-npm-scripts-only}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: unboxit-npm-scripts-only}
@@ -59,6 +86,9 @@ jobs:
   - get: ci
   - get: cloudbased-jeopardy
     trigger: true
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: cloudbased-jeopardy}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     input_mapping: {source-code: cloudbased-jeopardy}
@@ -73,6 +103,14 @@ resources:
     uri: git@github.com:gdumitrescu/testing-ci.git
     branch: master
     private_key: {{private-key}}
+
+- name: unboxit-sequelgen
+  type: git
+  source:
+    uri: git@github.com:unboxit/sequelgen.git
+    branch: master
+    private_key: {{private-key}}
+
 
 - name: unboxit-nosequelgen
   type: git
