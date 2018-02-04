@@ -37,6 +37,8 @@ jobs:
     trigger: true
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
+  - task: yarn-test
+    file: ci/concourse-ci/tasks/yarn-test/task.yml
     input_mapping: {source-code: unboxit-elming}
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
@@ -55,6 +57,8 @@ jobs:
     trigger: true
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
+  - task: yarn-test
+    file: ci/concourse-ci/tasks/yarn-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
