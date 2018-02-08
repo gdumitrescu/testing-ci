@@ -37,6 +37,7 @@ jobs:
     trigger: true
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
+    input_mapping: {source-code: unboxit-elming}
   - task: yarn-test
     file: ci/concourse-ci/tasks/yarn-test/task.yml
     input_mapping: {source-code: unboxit-elming}
@@ -57,6 +58,7 @@ jobs:
     trigger: true
   - task: npm-test
     file: ci/concourse-ci/tasks/npm-test/task.yml
+    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
   - task: yarn-test
     file: ci/concourse-ci/tasks/yarn-test/task.yml
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
