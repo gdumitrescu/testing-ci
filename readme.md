@@ -31,3 +31,5 @@ Project for testing CI services
 - [Snap CI](https://www.snap-ci.com/) - Easy builds, deployed when you want. Snap delivers fast feedback so you can deliver high quality software quickly.
 - [Strider-CD](https://strider-cd.github.io) - Open Source Continuous Integration & Deployment Server
 - [Travis CI](https://travis-ci.org) - Free Hosted Continuous Integration Platform for the Open Source Community
+
+Concourse is a trademark of Concourse in the U.S. and other countries.
