@@ -13,7 +13,7 @@ jobs:
     input_mapping: {source-code: unboxit-sequelgen}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 - name: test-unboxit-nosequelgen
   plan:
@@ -28,7 +28,7 @@ jobs:
     input_mapping: {source-code: unboxit-nosequelgen}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 - name: test-unboxit-elming
   plan:
@@ -49,7 +49,7 @@ jobs:
     input_mapping: {source-code: unboxit-elming}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 - name: test-unboxit-tdd-es6-babel-jest
   plan:
@@ -70,7 +70,7 @@ jobs:
     input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 - name: test-unboxit-npm-scripts-only
   plan:
@@ -85,7 +85,7 @@ jobs:
     input_mapping: {source-code: unboxit-npm-scripts-only}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 - name: test-cloudbased-jeopardy
   plan:
@@ -100,7 +100,7 @@ jobs:
     input_mapping: {source-code: cloudbased-jeopardy}
     params:
       SNYK_TOKEN: {{snyk-token}}
-      USER_ID: {{snyk-user-id}}
+      SNYK_USER_ID: {{snyk-user-id}}
 
 resources:
 - name: ci
@@ -116,7 +116,6 @@ resources:
     uri: git@github.com:unboxit/sequelgen.git
     branch: master
     private_key: {{private-key}}
-
 
 - name: unboxit-nosequelgen
   type: git
