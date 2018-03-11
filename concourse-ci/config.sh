@@ -13,8 +13,8 @@ fi
 
 function creds() {
   PRIVATE_KEY=$(lpass show --notes 1189151451382424461)
-  SNYK_TOKEN=$(lpass show --notes 2717732389534344821 | grep token | awk '{print $2}')
-  SNYK_USER_ID=$(lpass show 2717732389534344821 | grep Username | awk '{print $2}')
+  SNYK_TOKEN=$(lpass show --notes 6040013899909866467 | grep snyk | awk -F ':' '{print $2}')
+  SNYK_USER_ID=$(lpass show 3369372591286024549 --username)
 }
 
 function config() {
