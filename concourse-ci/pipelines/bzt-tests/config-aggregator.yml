@@ -1,0 +1,12 @@
+---
+execution:
+- executor: gatling
+  scenario: aggregator
+  concurrency: 50
+  hold-for: 1m
+  ramp-up: 1m
+
+scenarios:
+  aggregator:
+    requests:
+    - url: https://aggregator.netlify.com/

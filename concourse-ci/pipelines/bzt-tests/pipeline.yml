@@ -1,0 +1,16 @@
+---
+jobs:
+- name: test-bzt-aggregator
+  plan:
+  - get: ci
+    trigger: true
+  - task: bzt-test
+    file: ci/concourse-ci/tasks/bzt-test/task.yml
+
+resources:
+- name: ci
+  type: git
+  source:
+    uri: git@github.com:gdumitrescu/testing-ci.git
+    branch: master
+    private_key: {{private-key}}
