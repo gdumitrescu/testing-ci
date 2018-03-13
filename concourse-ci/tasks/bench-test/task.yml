@@ -1,0 +1,27 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: alpine
+    tag: latest
+
+inputs:
+- name: ci
+
+params:
+  CONCURRENCY:
+  REQUESTS:
+  URL:
+
+run:
+  path: sh
+  args:
+  - -c
+  - |
+    set -eux
+    cd ./ci
+    apk --no-cache add apache2-utils
+    ab -r -g out.dat -n $REQUESTS -c $CONCURRENCY $URL
+    cat out.dat

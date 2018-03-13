@@ -1,0 +1,19 @@
+---
+jobs:
+- name: test-bench-aggregator
+  plan:
+  - get: ci
+  - task: bench-test
+    file: ci/concourse-ci/tasks/bench-test/task.yml
+    params:
+      CONCURRENCY: {{bench-concurrency}}
+      REQUESTS: {{bench-requests}}
+      URL: {{bench-url}}
+
+resources:
+- name: ci
+  type: git
+  source:
+    uri: git@github.com:gdumitrescu/testing-ci.git
+    branch: master
+    private_key: {{private-key}}
