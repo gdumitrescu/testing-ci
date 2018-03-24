@@ -14,7 +14,7 @@ fi
 function creds() {
   PRIVATE_KEY=$(lpass show --notes 1189151451382424461)
   SNYK_TOKEN=$(lpass show --notes 6040013899909866467 | grep snyk | awk -F ':' '{print $2}')
-  SNYK_USER_ID=$(lpass show 3369372591286024549 --username)
+  SNYK_USER_ID=$(lpass show 2717732389534344821 --username)
 }
 
 function config() {
@@ -23,7 +23,10 @@ function config() {
     --config=./pipelines/"$PIPELINE"/pipeline.yml \
     --var=private-key="$PRIVATE_KEY" \
     --var=snyk-token="$SNYK_TOKEN" \
-    --var=snyk-user-id="$SNYK_USER_ID"
+    --var=snyk-user-id="$SNYK_USER_ID" \
+    --var=bench-concurrency="$BENCH_CONCURRENCY" \
+    --var=bench-requests="$BENCH_REQUESTS" \
+    --var=bench-url="$BENCH_URL"
   fly -t "$TARGET" unpause-pipeline --pipeline="$PIPELINE"
   fly -t "$TARGET" expose-pipeline --pipeline="$PIPELINE"
 }
