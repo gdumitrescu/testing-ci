@@ -23,5 +23,5 @@ run:
     set -eux
     cd ./ci
     apk --no-cache add apache2-utils
-    ab -r -g out.dat -n $REQUESTS -c $CONCURRENCY $URL
-    cat out.dat
+    ab -r -e report.csv -n $REQUESTS -c $CONCURRENCY $URL
+    cat report.csv
