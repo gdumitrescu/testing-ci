@@ -3,6 +3,7 @@ jobs:
 - name: test-unboxit-sequelgen
   plan:
   - get: ci
+    trigger: true
   - get: unboxit-sequelgen
     trigger: true
   - task: nsp-test
@@ -18,6 +19,7 @@ jobs:
 - name: test-unboxit-nosequelgen
   plan:
   - get: ci
+    trigger: true
   - get: unboxit-nosequelgen
     trigger: true
   - task: nsp-test
@@ -33,6 +35,7 @@ jobs:
 - name: test-unboxit-elming
   plan:
   - get: ci
+    trigger: true
   - get: unboxit-elming
     trigger: true
   - task: npm-test
@@ -54,6 +57,7 @@ jobs:
 - name: test-unboxit-tdd-es6-babel-jest
   plan:
   - get: ci
+    trigger: true
   - get: unboxit-tdd-es6-babel-jest
     trigger: true
   - task: npm-test
@@ -75,6 +79,7 @@ jobs:
 - name: test-unboxit-npm-scripts-only
   plan:
   - get: ci
+    trigger: true
   - get: unboxit-npm-scripts-only
     trigger: true
   - task: nsp-test
@@ -90,6 +95,7 @@ jobs:
 - name: test-cloudbased-jeopardy
   plan:
   - get: ci
+    trigger: true
   - get: cloudbased-jeopardy
     trigger: true
   - task: nsp-test
