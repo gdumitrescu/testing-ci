@@ -1,0 +1,58 @@
+---
+jobs:
+- name: upgrade-tests
+  plan:
+  - get: ci
+  - get: repos
+    trigger: true
+  - get: nightly
+    trigger: true
+  - task: upgrade-test
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: renovate/renovate
+          tag: latest
+      params:
+        REPO: "unboxit/tdd-es6-babel-jest"
+        GITHUB_TOKEN: {{github-token}}
+      inputs:
+        - name: repos
+      run:
+        path: sh
+        args:
+        - -c
+        - |
+          set -eux
+          for repo in `cat ./repos/code-repos.txt`
+          do
+            npx renovate --token "${GITHUB_TOKEN}" --pin-versions=false --onboarding=false --rebase-stale-prs=true --ignore-unstable=true --pr-footer "" --branch-prefix=upgrades/ "$repo"
+          done
+          for repo in `cat ./repos/docker-repos.txt`
+          do
+            npx renovate --token "${GITHUB_TOKEN}" --pin-versions=false --onboarding=false --rebase-stale-prs=true --ignore-unstable=true --pr-footer "" --branch-prefix=upgrades/ --pin-digests=false "$repo"
+          done
+
+resources:
+- name: ci
+  type: git
+  source:
+    uri: git@github.com:gdumitrescu/testing-ci.git
+    branch: master
+    private_key: {{private-key}}
+
+- name: repos
+  type: git
+  source:
+    uri: git@gist.github.com:4b7d6a1709ce94e13e3b75d681d81be6.git
+    branch: master
+    private_key: {{private-key}}
+
+- name: nightly
+  type: time
+  source:
+    location: America/Toronto
+    start: 12:00 AM
+    stop: 1:00 AM
