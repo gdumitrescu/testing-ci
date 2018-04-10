@@ -1,0 +1,67 @@
+---
+jobs:
+- name: aggregator-pull-requests
+  plan:
+  - get: ci
+  - get: aggregator-ui
+    trigger: true
+  - get: aggregator-ui-prs
+    trigger: true
+    version: every
+  - task: npm-test
+    file: ci/concourse-ci/tasks/npm-test/task.yml
+    input_mapping: {source-code: aggregator-ui}
+    <<: *pr-status
+  - task: nsp-test
+    file: ci/concourse-ci/tasks/nsp-test/task.yml
+    input_mapping: {source-code: aggregator-ui}
+    <<: *pr-status
+  - task: snyk-test
+    file: ci/concourse-ci/tasks/snyk-test/task.yml
+    input_mapping: {source-code: aggregator-ui}
+    <<: *pr-status
+    params:
+      SNYK_TOKEN: {{snyk-token}}
+      SNYK_USER_ID: {{snyk-user-id}}
+
+pr-status: &pr-status
+  privileged: true
+  on_success:
+    put: aggregator-ui-prs
+    params:
+      path: aggregator-ui-prs
+      status: success
+  on_failure:
+    put: aggregator-ui-prs
+    params:
+      path: aggregator-ui-prs
+      status: failure
+
+resource_types:
+  - name: pull-request
+    type: docker-image
+    source:
+      repository: jtarchie/pr
+
+resources:
+  - name: ci
+    type: git
+    source:
+      uri: git@github.com:gdumitrescu/testing-ci.git
+      branch: master
+      private_key: {{private-key}}
+
+  - name: aggregator-ui
+    type: git
+    source:
+      uri: git@github.com:Aggregator/aggregator-ui.git
+      branch: master
+      private_key: {{private-key}}
+
+  - name: aggregator-ui-prs
+    type: pull-request
+    source:
+      access_token: {{github-token}}
+      private_key: {{private-key}}
+      repo: Aggregator/aggregator-ui
+      base: master
