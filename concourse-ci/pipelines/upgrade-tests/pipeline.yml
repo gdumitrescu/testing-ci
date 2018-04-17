@@ -28,11 +28,32 @@ jobs:
           set -eux
           for repo in `cat ./repos/code-repos.txt`
           do
-            npx renovate --token "${GITHUB_TOKEN}" --pin-versions=false --onboarding=false --rebase-stale-prs=true --ignore-unstable=true --pr-footer "" --branch-prefix=upgrades/ "$repo"
+            npx renovate \
+              --token "${GITHUB_TOKEN}" \
+              --automerge-type=branch-push \
+              --automerge=true \
+              --branch-prefix=upgrades/ \
+              --ignore-unstable=true \
+              --onboarding=false \
+              --pin-versions=false \
+              --pr-footer "" \
+              --rebase-stale-prs=true \
+              "$repo"
           done
           for repo in `cat ./repos/docker-repos.txt`
           do
-            npx renovate --token "${GITHUB_TOKEN}" --pin-versions=false --onboarding=false --rebase-stale-prs=true --ignore-unstable=true --pr-footer "" --branch-prefix=upgrades/ --pin-digests=false "$repo"
+            npx renovate \
+              --token "${GITHUB_TOKEN}" \
+              --automerge-type=branch-push \
+              --automerge=true \
+              --branch-prefix=upgrades/ \
+              --ignore-unstable=true \
+              --onboarding=false \
+              --pin-versions=false \
+              --pr-footer "" \
+              --rebase-stale-prs=true \
+              --pin-digests=false \
+              "$repo"
           done
 
 resources:
