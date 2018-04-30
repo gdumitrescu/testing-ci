@@ -17,5 +17,5 @@ run:
   - |
     set -eux
     cd ./ci
-    export TERM=linux
+    export TERM=dumb
     bzt ./concourse-ci/pipelines/bzt-tests/config-aggregator.yml
