@@ -16,7 +16,6 @@ jobs:
           repository: renovate/renovate
           tag: latest
       params:
-        REPO: "unboxit/tdd-es6-babel-jest"
         GITHUB_TOKEN: {{github-token}}
       inputs:
         - name: repos
