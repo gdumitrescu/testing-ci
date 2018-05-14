@@ -1,0 +1,47 @@
+---
+jobs:
+- name: ui-tests
+  plan:
+  - get: ci
+  - get: repo
+    resource: wraith-ui
+    trigger: true
+  - task: test-ui-diff
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: dockerify/wraith
+          tag: latest
+      inputs:
+      - name: repo
+      outputs:
+      - name: shots
+      run:
+        path: sh
+        args:
+        - -c
+        - |
+          set -eux
+          cd  ./repo
+          npm install -g npm casperjs phantomjs-prebuilt gh-pages
+          wraith reset_shots configs/capture.yaml
+          wraith capture configs/capture.yaml
+          mv shots/gallery.html shots/index.html
+          gh-pages -d shots --message 'Auto-generated commit' | yes
+
+resources:
+- name: ci
+  type: git
+  source:
+    uri: git@github.com:gdumitrescu/testing-ci.git
+    branch: master
+    private_key: {{private-key}}
+
+- name: wraith-ui
+  type: git
+  source:
+    uri: git@github.com:revivui/wraith-ui.git
+    branch: master
+    private_key: {{private-key}}
