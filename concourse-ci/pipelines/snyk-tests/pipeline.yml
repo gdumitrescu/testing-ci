@@ -4,14 +4,15 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: unboxit-sequelgen
+  - get: source-code
+    resource: unboxit-sequelgen
     trigger: true
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: unboxit-sequelgen}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: unboxit-sequelgen}
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
@@ -20,14 +21,15 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: unboxit-nosequelgen
+  - get: source-code
+    resource: unboxit-nosequelgen
     trigger: true
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: unboxit-nosequelgen}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: unboxit-nosequelgen}
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
@@ -36,20 +38,19 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: unboxit-elming
+  - get: source-code
+    resource: unboxit-elming
     trigger: true
-  - task: npm-test
-    file: ci/concourse-ci/tasks/npm-test/task.yml
-    input_mapping: {source-code: unboxit-elming}
-  - task: yarn-test
-    file: ci/concourse-ci/tasks/yarn-test/task.yml
-    input_mapping: {source-code: unboxit-elming}
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: unboxit-elming}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: unboxit-elming}
+  - task: npm-test
+    file: ci/concourse-ci/tasks/npm-test/task.yml
+  - task: yarn-test
+    file: ci/concourse-ci/tasks/yarn-test/task.yml
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
@@ -58,20 +59,19 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: unboxit-tdd-es6-babel-jest
+  - get: source-code
+    resource: unboxit-tdd-es6-babel-jest
     trigger: true
-  - task: npm-test
-    file: ci/concourse-ci/tasks/npm-test/task.yml
-    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
-  - task: yarn-test
-    file: ci/concourse-ci/tasks/yarn-test/task.yml
-    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: unboxit-tdd-es6-babel-jest}
+  - task: npm-test
+    file: ci/concourse-ci/tasks/npm-test/task.yml
+  - task: yarn-test
+    file: ci/concourse-ci/tasks/yarn-test/task.yml
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
@@ -80,14 +80,15 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: unboxit-npm-scripts-only
+  - get: source-code
+    resource: unboxit-npm-scripts-only
     trigger: true
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: unboxit-npm-scripts-only}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: unboxit-npm-scripts-only}
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
@@ -96,14 +97,15 @@ jobs:
   plan:
   - get: ci
     trigger: true
-  - get: cloudbased-jeopardy
+  - get: source-code
+    resource: cloudbased-jeopardy
     trigger: true
+  - task: audit-test
+    file: ci/concourse-ci/tasks/audit-test/task.yml
   - task: nsp-test
     file: ci/concourse-ci/tasks/nsp-test/task.yml
-    input_mapping: {source-code: cloudbased-jeopardy}
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
-    input_mapping: {source-code: cloudbased-jeopardy}
     params:
       SNYK_TOKEN: {{snyk-token}}
       SNYK_USER_ID: {{snyk-user-id}}
