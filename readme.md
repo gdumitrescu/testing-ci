@@ -8,7 +8,7 @@ Project for testing CI services
 
 | Name     | Features | Status |
 |----------|----------|--------|
-| Airplane CI | | online |
+| Airplane CI | | offline |
 | CircleCI | https://circleci.com/product/#features | online |
 | Codefresh | https://codefresh.io/features | online |
 | Codeship | https://codeship.com/features | online |
