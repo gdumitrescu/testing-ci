@@ -9,8 +9,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     params:
@@ -26,8 +24,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     params:
@@ -43,8 +39,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
   - task: npm-test
@@ -64,8 +58,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
   - task: npm-test
@@ -85,8 +77,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     params:
@@ -102,8 +92,6 @@ jobs:
     trigger: true
   - task: audit-test
     file: ci/concourse-ci/tasks/audit-test/task.yml
-  - task: nsp-test
-    file: ci/concourse-ci/tasks/nsp-test/task.yml
   - task: snyk-test
     file: ci/concourse-ci/tasks/snyk-test/task.yml
     params:
