@@ -13,7 +13,7 @@ fi
 
 function creds() {
   PRIVATE_KEY=$(lpass show --notes 1189151451382424461)
-  GITHUB_TOKEN=$(lpass show --notes 6040013899909866467 | grep github | awk -F ':' '{print $2}')
+  GITHUB_TOKEN=$(lpass show --notes 6040013899909866467 | grep githubrepo | awk -F ':' '{print $2}')
   SNYK_TOKEN=$(lpass show --notes 6040013899909866467 | grep snyk | awk -F ':' '{print $2}')
   SNYK_USER_ID=$(lpass show 2717732389534344821 --username)
 }
