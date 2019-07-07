@@ -1,8 +1,16 @@
-pipeline:
-  frontend:
-    image: node
-    commands:
-      - npm install
-      - npm run test
-      
-branches: master
+kind: pipeline
+name: default
+
+steps:
+- name: frontend
+  image: node
+  commands:
+  - npm install
+  - npm test
+  when:
+    event:
+    - push
+    - pull-request
+    branch:
+    - master
+    - feature/*
